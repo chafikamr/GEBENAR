@@ -346,6 +346,17 @@ blockquote {
 }
 
 @media screen and (max-width: 480px) {
+	  .row {
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        align-items: stretch;
+        width: 100%;
+    }
+    .row>* {
+        box-sizing: border-box;
+        padding: 1px 0 !important;
+    }
     .container {
         width: 100% !important;
     }
