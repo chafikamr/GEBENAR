@@ -355,7 +355,7 @@ blockquote {
     }
     .row>* {
         box-sizing: border-box;
-        padding: 1px 0 !important;
+        padding: 10px 0 !important;
     }
     .container {
         width: 100% !important;
