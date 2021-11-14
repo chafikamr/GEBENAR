@@ -439,7 +439,14 @@ blockquote {
 .row>.off-4 {
     margin-left: 33.33333%;
 }
-
+  .row {
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        align-items: stretch;
+        width: 100%;
+    }
+   
 .row>.col-5 {
     width: 41.66667%;
 }
