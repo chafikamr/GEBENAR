@@ -2266,7 +2266,7 @@ table.default th {
     letter-spacing: 0.125em;
     line-height: 1.75em;
     padding: 0.5em 1em 0.5em 1em;
-    text-align: left;
+    text-align: center;
     text-transform: uppercase;
 }
 
@@ -3015,4 +3015,14 @@ input[type="button"].small,
 
 #header span {
     display: block;
+}
+
+#header:before,
+#header:after {
+    background: rgb(224 224 224 / 0%);
+    content: '';
+    left: 50%;
+    position: absolute;
+    width: 1px;
+    z-index: 0;
 }
