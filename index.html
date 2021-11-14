@@ -11,10 +11,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400&family=Tajawal:wght@200;300;400&display=swap" rel="stylesheet">
-	  <!-- Chrome, Firefox OS and Opera -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400&family=Tajawal:wght@200;300;400&display=swap" rel="stylesheet">
+    <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#3b2e3c">
     <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#3b2e3c">
@@ -22,7 +22,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#3b2e3c">
 </head>
 
-<body class="is-preload" style="font-family:tajawal" >
+<body class="is-preload" style="font-family:tajawal">
 
     <!-- Header -->
     <div id="header">
@@ -256,24 +256,29 @@
 
 
 
-            <form method="post" action="#">
+            <form action="https://sheetdb.io/api/v1/xfvx7l30e2c84" method="POST" id="sheetdb-form">
                 <div class="row">
                     <div class="col-6 col-12-mobilep">
-                        <input type="text" name="name" placeholder="الإسم الكامل" />
+                        <input type="text" name="data[name]" placeholder="الإسم الكامل" />
                     </div>
                     <div class="col-6 col-12-mobilep">
-                        <input type="email" name="email" placeholder="رقم الهاتف" />
+                        <input type="phone" name="data[phone]" placeholder="رقم الهاتف" />
                     </div>
                     <!-- <div class="col-12">
                         <textarea name="message" placeholder="Message" rows="6"></textarea>
                     </div> -->
                     <div class="col-12">
                         <ul class="actions special">
-                            <li><input type="submit" value="سجل الآن" /></li>
+                            <li><input type="submit" value="سجل الآن" />
+                            </li>
                         </ul>
                     </div>
                 </div>
             </form>
+            <div id="message">
+                <i class="fas fa-check-circle" style="color:rgb(5, 160, 0)"></i>
+                <span>   تم الإرسال بنجاح</span>
+            </div>
 
             <!-- <ul class="icons">
                 <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -290,7 +295,22 @@
 
         </div>
     </div>
+    <script>
+        var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            fetch(form.action, {
+                method: "POST",
+                body: new FormData(document.getElementById("sheetdb-form")),
+            }).then(
+                response => response.json()
+            ).then((html) => {
+                document.getElementById("sheetdb-form").style.display = "none";
+                document.getElementById("message").style.display = "block";
 
+            });
+        });
+    </script>
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
